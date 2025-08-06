@@ -37,26 +37,9 @@ A simple and clean Todo application built with **Flutter** and **Riverpod** for 
 
 ---
 
-## 📂 Folder Structure
 
-```
 
-lib/
-├── main.dart
-├── models/
-│   └── todo.dart
-├── providers/
-│   └── todo\_providers.dart
-├── screens/
-│   └── todo\_screen.dart
-├── widgets/
-│   ├── todo\_filters.dart
-│   ├── todo\_item.dart
-│   └── todo\_stats.dart
 
-````
-
----
 
 ## 🛠️ Getting Started
 
