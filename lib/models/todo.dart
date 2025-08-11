@@ -23,6 +23,21 @@ class Todo {
     );
   }
 
+  Map<String, dynamic> toJson() => {
+    'id': id,
+    'title': title,
+    'isCompleted': isCompleted,
+  };
+
+  factory Todo.fromJson(Map<String, dynamic> json) {
+    return Todo(
+      id: json['id'],
+      title: json['title'],
+      isCompleted: json['isCompleted'],
+    );
+  }
+
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;

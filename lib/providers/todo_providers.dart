@@ -1,21 +1,64 @@
 // lib/providers/todo_providers.dart
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../models/todo.dart';
+import '../preferences/todo_preference.dart';
 
 // 1. StateNotifierProvider for complex state (todo list)
+// class TodoListNotifier extends StateNotifier<List<Todo>> {
+//   TodoListNotifier() : super([]);
+
+//   void addTodo(String title) {
+//     if (title.trim().isEmpty) return;
+    
+//     final newTodo = Todo(
+//       id: DateTime.now().millisecondsSinceEpoch.toString(),
+//       title: title.trim(),
+//     );
+    
+//     // Key concept: Create new state, don't modify existing
+//     state = [...state, newTodo];
+//   }
+
+//   void toggleTodo(String id) {
+//     state = [
+//       for (final todo in state)
+//         if (todo.id == id)
+//           todo.copyWith(isCompleted: !todo.isCompleted)
+//         else
+//           todo,
+//     ];
+//   }
+
+//   void deleteTodo(String id) {
+//     state = state.where((todo) => todo.id != id).toList();
+//   }
+
+//   void clearCompleted() {
+//     state = state.where((todo) => !todo.isCompleted).toList();
+//   }
+// }
 class TodoListNotifier extends StateNotifier<List<Todo>> {
-  TodoListNotifier() : super([]);
+  TodoListNotifier([List<Todo>? initialTodos]) : super(initialTodos ?? []);
+
+  Future<void> _loadTodos() async {
+    final todos = await TodoPrefs.loadTodos();
+    state = todos;
+  }
+
+  Future<void> _saveTodos() async {
+    await TodoPrefs.saveTodos(state);
+  }
 
   void addTodo(String title) {
     if (title.trim().isEmpty) return;
-    
+
     final newTodo = Todo(
       id: DateTime.now().millisecondsSinceEpoch.toString(),
       title: title.trim(),
     );
-    
-    // Key concept: Create new state, don't modify existing
+
     state = [...state, newTodo];
+    _saveTodos(); // ✅ save after change
   }
 
   void toggleTodo(String id) {
@@ -26,17 +69,19 @@ class TodoListNotifier extends StateNotifier<List<Todo>> {
         else
           todo,
     ];
+    _saveTodos();
   }
 
   void deleteTodo(String id) {
     state = state.where((todo) => todo.id != id).toList();
+    _saveTodos();
   }
 
   void clearCompleted() {
     state = state.where((todo) => !todo.isCompleted).toList();
+    _saveTodos();
   }
 }
-
 final todoListProvider = StateNotifierProvider<TodoListNotifier, List<Todo>>((ref) {
   return TodoListNotifier();
 });
@@ -45,11 +90,16 @@ final todoListProvider = StateNotifierProvider<TodoListNotifier, List<Todo>>((re
 enum TodoFilter { all, active, completed }
 
 final todoFilterProvider = StateProvider<TodoFilter>((ref) => TodoFilter.all);
+final todoSearchQueryProvider = StateProvider<String>((ref) => '');
+
 
 // 3. Provider for computed values (filtered todos)
 final filteredTodosProvider = Provider<List<Todo>>((ref) {
   final todos = ref.watch(todoListProvider);
   final filter = ref.watch(todoFilterProvider);
+  final searchQuery = ref.watch(todoSearchQueryProvider).toLowerCase();
+  List<Todo> filtered = todos;
+  
 
   switch (filter) {
     case TodoFilter.all:
@@ -59,7 +109,13 @@ final filteredTodosProvider = Provider<List<Todo>>((ref) {
     case TodoFilter.completed:
       return todos.where((todo) => todo.isCompleted).toList();
   }
+   if (searchQuery.isNotEmpty) {
+    filtered = filtered.where((todo) => todo.title.toLowerCase().contains(searchQuery)).toList();
+  }
+
+  return filtered;
 });
+
 
 // 4. Provider for statistics (computed values)
 final todoStatsProvider = Provider<TodoStats>((ref) {
