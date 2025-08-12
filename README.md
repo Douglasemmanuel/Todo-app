@@ -11,20 +11,13 @@ A simple and clean Todo application built with **Flutter** and **Riverpod** for 
 
 ---
 
-## 📸 Screenshots
-<!-- ![Main Screen](./assets/images/Screenshot.png)
-![All Todo](./assets/images/All.png)
-![Completed Todo](./assets/images/completed.png)
-![Darkmode Screen](./assets/images/darkmode.png)
-![Active Todo](./assets/images/active.png) -->
+### App Screenshots
 
-<img src="https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/Screenshot.png" alt="Main Screen" width="200"/>
-<img src="https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/All.png" alt="All Todo" width="200"/>
-<img src="https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/completed.png" alt="Completed Todo" width="200"/>
-<img src="https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/darkmode.png" alt="Darkmode Screen" width="200"/>
-<img src="https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/active.png" alt="Active Todo" width="200"/>
-
-
+![Main Screen](assets/images/Screenshot.png)
+![Active Screen](assets/images/active.png)
+![AllTodo](assets/images/All.png)
+![CompletedTodo](assets/images/completed.png)
+![DarkMode](assets/images/darkmode.png)
 
 
 ---
