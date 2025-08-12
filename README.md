@@ -1,32 +1,20 @@
-Sure! Here's a `README.md` file for your **Riverpod Todo App** project. It includes a project overview, setup instructions, features, and folder structure.
+# Riverpod Todo App.  project.
 
----
-
-### 📄 `README.md`
-
-```markdown
 # ✅ Riverpod Todo App
 
 A simple and clean Todo application built with **Flutter** and **Riverpod** for state management. This app demonstrates best practices with state management, filtering, and persistent UI patterns.
 
 ---
 
-### App Screenshots
-<h3>📸 App Screenshots</h3>
+## 📸 Screenshots
 
-<p float="left">
-  <img src="https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/Screenshot.png" alt="Main Screen" width="200"/>
-  <img src="https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/All.png" alt="All Todos" width="200"/>
-  <img src="https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/completed.png" alt="Completed Todos" width="200"/>
-  <img src="https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/darkmode.png" alt="Dark Mode" width="200"/>
-  <img src="https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/active.png" alt="Active Todos" width="200"/>
-</p>
+<img src="assets/images/Screenshot.png" alt="Main Screen" width="200"/>
+<img src="assets/images/All.png" alt="All Todos" width="200"/>
+<img src="assets/images/completed.png" alt="Completed Todos" width="200"/>
+<img src="assets/images/darkmode.png" alt="Dark Mode" width="200"/>
+<img src="https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/active.png" alt="Active Todos" width="200"/>
 
-<!-- ![Main Screen](https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/Screenshot.png){width=200}
-![All Todo](https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/All.png){width=200}
-![Completed Todo](https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/completed.png){width=200}
-![Darkmode Screen](https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/darkmode.png){width=200}
-![Active Todo](https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/active.png){width=200} -->
+> Replace the filenames with your actual images if different. You can also adjust the `width` for resizing.
 
 ---
 
@@ -60,19 +48,20 @@ A simple and clean Todo application built with **Flutter** and **Riverpod** for 
 
 ### 🔧 Installation
 
-1. **Clone the repo**:
-   ```bash
+1. Clone the repository:
+  
+```bash
    git clone https://github.com/Douglasemmanuel/Todo-app.git
    cd todo_app
 ````
 
-2. **Install dependencies**:
+2. Install dependencies:
 
-   ```bash
+```bash
    flutter pub get
-   ```
+```
 
-3. **Run the app**:
+3. Run the app :
 
    ```bash
    flutter run
