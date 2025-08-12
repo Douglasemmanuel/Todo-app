@@ -12,13 +12,21 @@ A simple and clean Todo application built with **Flutter** and **Riverpod** for 
 ---
 
 ### App Screenshots
+<h3>📸 App Screenshots</h3>
 
-![Main Screen](assets/images/Screenshot.png)
-![Active Screen](assets/images/active.png)
-![AllTodo](assets/images/All.png)
-![CompletedTodo](assets/images/completed.png)
-![DarkMode](assets/images/darkmode.png)
+<p float="left">
+  <img src="https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/Screenshot.png" alt="Main Screen" width="200"/>
+  <img src="https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/All.png" alt="All Todos" width="200"/>
+  <img src="https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/completed.png" alt="Completed Todos" width="200"/>
+  <img src="https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/darkmode.png" alt="Dark Mode" width="200"/>
+  <img src="https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/active.png" alt="Active Todos" width="200"/>
+</p>
 
+<!-- ![Main Screen](https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/Screenshot.png){width=200}
+![All Todo](https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/All.png){width=200}
+![Completed Todo](https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/completed.png){width=200}
+![Darkmode Screen](https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/darkmode.png){width=200}
+![Active Todo](https://raw.githubusercontent.com/Douglasemmanuel/Todo-app/main/assets/images/active.png){width=200} -->
 
 ---
 
