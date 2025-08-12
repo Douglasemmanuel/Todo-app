@@ -14,6 +14,10 @@ A simple and clean Todo application built with **Flutter** and **Riverpod** for 
 ## 📸 Screenshots
 
 ![Main Screen](assets/images/Screenshot.png)
+![All Todo](assets/images/All.png)
+![Completed Todo](assets/images/completed.png)
+![Darkmode Screen](assets/images/darkmode.png)
+![Active Todo](assets/images/active.png)
 
 
 ---

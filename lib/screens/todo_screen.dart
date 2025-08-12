@@ -6,6 +6,7 @@ import '../widgets/todo_item.dart';
 import '../widgets/todo_stats.dart' as widgets;
 import '../widgets/todo_filters.dart' as widgets;
 import '../providers/theme_providers.dart';
+import 'dart:async';
 
 
 class TodoScreen extends ConsumerStatefulWidget {
@@ -18,10 +19,12 @@ class TodoScreen extends ConsumerStatefulWidget {
 class _TodoScreenState extends ConsumerState<TodoScreen> {
   final TextEditingController _controller = TextEditingController();
   final TextEditingController _searchController = TextEditingController();
+   Timer? _debounce;
 
   @override
   void dispose() {
     _controller.dispose();
+     _debounce?.cancel();
     _searchController.dispose();
     super.dispose();
   }
@@ -38,10 +41,14 @@ class _TodoScreenState extends ConsumerState<TodoScreen> {
     ref.read(todoSearchQueryProvider.notifier).state = '';
   }
 
-  void _updateSearchQuery(String value) {
-  ref.read(todoSearchQueryProvider.notifier).state = value;
-}
+  void _onSearchChanged(String query) {
+    if (_debounce?.isActive ?? false) _debounce!.cancel();
 
+    _debounce = Timer(const Duration(milliseconds: 500), () {
+      // Update the provider only after user stops typing for 500ms
+      ref.read(todoSearchQueryProvider.notifier).state = query;
+    });
+  }
 
 
   @override
@@ -85,7 +92,7 @@ class _TodoScreenState extends ConsumerState<TodoScreen> {
                   onPressed: _clearSearch,
                 ),
               ),
-              onChanged: _updateSearchQuery,
+              onChanged: _onSearchChanged,
               
             ),
           ),
