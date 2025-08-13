@@ -72,14 +72,7 @@ class _TodoScreenState extends ConsumerState<TodoScreen> {
       ),
       body: Column(
         children: [
-          Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Image.asset(
-        'assets/images/darkmode.png',
-        height: 150,
-        fit: BoxFit.cover,
-      ),
-    ),
+     
           // Statistics section
           widgets.TodoStats(),
 
